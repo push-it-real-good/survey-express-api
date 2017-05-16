@@ -1,10 +1,11 @@
 #!/bin/sh
+# sh scripts/surveys/show.sh
 
 API="http://localhost:4741"
 URL_PATH="/surveys"
 
-TOKEN="sVszRfskTfAsTk1bkDt+EVfZK2gYUh9sm6d49hTSA4g=--NoOulK8XHktFMK3QOPYrNO0EWCmd+Mqza9dXkjD7JzQ="
-ID="5914a54f21fcf92cc6d12e6c"
+TOKEN="KNUySxDe/SgD3FBeFgczZjUqvXvWFR6Bb6TBIxb4MhE=--JRLOoQvIhIoHLZtmKlW/kwROOo8/SAKtBSn7kxQ0TFc="
+ID="591b466789660e287b76551c"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \

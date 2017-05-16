@@ -1,13 +1,15 @@
 #!/bin/bash
+# sh scripts/questions/update.sh
 
 API="http://localhost:4741"
-URL_PATH="/surveys"
+URL_PATH="/questions"
 
-TOKEN="rBU2mhUoI1XVlNGKFlxEnFiapuUFcSlJ+rjWkOxeNAU=--A9+Fa6CmUQW3gjLh+VGQlygJsdJ2jjWlUuUsi11hSAI="
-ID="59148148682cb221b459fe62"
-TITLE="Terry first survey - edited"
-URL"http://url.com/survey/g25jfasow7435q7043275rg473928762"
-SURVEYNO="g25jfasow7435q7043275rg473928762"
+TOKEN="KNUySxDe/SgD3FBeFgczZjUqvXvWFR6Bb6TBIxb4MhE=--JRLOoQvIhIoHLZtmKlW/kwROOo8/SAKtBSn7kxQ0TFc="
+ID="591b528a73163436ff31a147"
+
+QN="1"
+TEXT="blue or yellow?"
+SURVEYID="591b466789660e287b76551c"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
@@ -15,10 +17,10 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "survey": {
-      "title": "'"${TITLE}"'",
-      "url": "'"${URL}"'",
-      "survey_no": "'"${SURVEYNO}"'"
+    "question": {
+      "question_no": "'"${QN}"'",
+      "text": "'"${TEXT}"'",
+      "survey_id": "'"${SURVEYID}"'"
     }
   }'
 
