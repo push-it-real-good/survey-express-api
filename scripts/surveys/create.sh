@@ -3,11 +3,10 @@
 API="http://localhost:4741"
 URL_PATH="/surveys"
 
-
-TOKEN="rBU2mhUoI1XVlNGKFlxEnFiapuUFcSlJ+rjWkOxeNAU=--A9+Fa6CmUQW3gjLh+VGQlygJsdJ2jjWlUuUsi11hSAI="
-# ID="59148148682cb221b459fe62"
-TITLE="Terry first survey"
-URL"http://url.com/survey/g25jfasow7435q7043275rg473928762"
+TOKEN="KNUySxDe/SgD3FBeFgczZjUqvXvWFR6Bb6TBIxb4MhE=--JRLOoQvIhIoHLZtmKlW/kwROOo8/SAKtBSn7kxQ0TFc="
+# ID="591b452a89660e287b765332"
+TITLE="first survey"
+URL="http://url.com/survey/g25jfasow7435q7043275rg473928762"
 
 curl "${API}${URL_PATH}" \
   --include \
