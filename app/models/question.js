@@ -33,7 +33,7 @@ const questionSchema = new mongoose.Schema({
 })
 
 questionSchema.virtual('length').get(function length () {
-  return this.title.length
+  return this.text.length
 })
 
 const Question = mongoose.model('Question', questionSchema)

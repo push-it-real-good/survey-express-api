@@ -1,22 +1,21 @@
 #!/bin/bash
+# sh scripts/responses/create.sh
 
 API="http://localhost:4741"
 URL_PATH="/responses"
 
+TOKEN="KNUySxDe/SgD3FBeFgczZjUqvXvWFR6Bb6TBIxb4MhE=--JRLOoQvIhIoHLZtmKlW/kwROOo8/SAKtBSn7kxQ0TFc="
+# ID="591b566e6c7cec38cd43e05f"
 
-TOKEN="rBU2mhUoI1XVlNGKFlxEnFiapuUFcSlJ+rjWkOxeNAU=--A9+Fa6CmUQW3gjLh+VGQlygJsdJ2jjWlUuUsi11hSAI="
-# ID="59148148682cb221b459fe62"
-
-TEXT="GREEN"
-SURVEYID="g25jfasow7435q7043275rg473928762"
-QUESTIONID="g25jfasow7435q7043275rg473928762"
+TEXT="red"
+SURVEYID="591b466789660e287b76551c"
+QUESTIONID="591b528a73163436ff31a147"
 RESPONDENTID="g25jfasow7435q7043275rg473928762"
 
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "response": {
       "text": "'"${TEXT}"'",

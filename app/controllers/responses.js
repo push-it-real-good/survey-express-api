@@ -29,9 +29,7 @@ const show = (req, res) => {
 
 const create = (req, res, next) => {
   // adds the _owner key to req.body.response and sets the req.user_id // this creates an response with an _owner
-  const response = Object.assign(req.body.response, {
-    _owner: req.user._id
-  })
+  const response = Object.assign(req.body.response)
   // executes the create method on Response model with response object
     // this response object is created with data from the client and the current user as _owner
   Response.create(response)
@@ -39,7 +37,7 @@ const create = (req, res, next) => {
     .then(response =>
       res.status(201)
         .json({
-          response: response.toJSON({ virtuals: true, user: req.user })
+          response: response.toJSON({ virtuals: true })
         }))
     // if there is an error, send to the error handler
     .catch(next)

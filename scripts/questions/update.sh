@@ -1,13 +1,15 @@
 #!/bin/bash
+# sh scripts/questions/update.sh
 
 API="http://localhost:4741"
 URL_PATH="/questions"
 
-TOKEN="rBU2mhUoI1XVlNGKFlxEnFiapuUFcSlJ+rjWkOxeNAU=--A9+Fa6CmUQW3gjLh+VGQlygJsdJ2jjWlUuUsi11hSAI="
-# ID="59148148682cb221b459fe62"
+TOKEN="KNUySxDe/SgD3FBeFgczZjUqvXvWFR6Bb6TBIxb4MhE=--JRLOoQvIhIoHLZtmKlW/kwROOo8/SAKtBSn7kxQ0TFc="
+ID="591b528a73163436ff31a147"
+
 QN="1"
-TEXT="Do you like RED or GREEN"
-SURVEYID="g25jfasow7435q7043275rg473928762"
+TEXT="blue or yellow?"
+SURVEYID="591b466789660e287b76551c"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
