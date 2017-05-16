@@ -18,4 +18,6 @@ module.exports = require('lib/wiring/routes')
 .resources('users', { only: ['index', 'show'] })
 
 .resources('surveys', { only: ['index', 'show', 'destroy', 'create', 'update'] })
+.resources('questions', { only: ['index', 'show', 'destroy', 'create', 'update'] })
+.resources('responses', { only: ['index', 'show', 'destroy', 'create', 'update'] })
 // all routes created

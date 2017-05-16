@@ -1,13 +1,15 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/questions"
+URL_PATH="/responses"
 
 TOKEN="rBU2mhUoI1XVlNGKFlxEnFiapuUFcSlJ+rjWkOxeNAU=--A9+Fa6CmUQW3gjLh+VGQlygJsdJ2jjWlUuUsi11hSAI="
 # ID="59148148682cb221b459fe62"
-QN="1"
-TEXT="Do you like RED or GREEN"
+
+TEXT="GREEN"
 SURVEYID="g25jfasow7435q7043275rg473928762"
+QUESTIONID="g25jfasow7435q7043275rg473928762"
+RESPONDENTID="g25jfasow7435q7043275rg473928762"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
@@ -15,10 +17,11 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "question": {
-      "question_no": "'"${QN}"'",
+    "response": {
       "text": "'"${TEXT}"'",
-      "survey_id": "'"${SURVEYID}"'"
+      "survey_id": "'"${SURVEYID}"'",
+      "question_id": "'"${QUESTIONID}"'",
+      "respondent_id": "'"${RESPONDENTID}"'"
     }
   }'
 
