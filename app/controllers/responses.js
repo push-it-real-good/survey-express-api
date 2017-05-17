@@ -11,13 +11,17 @@ const index = (req, res, next) => {
   // find everything in the Response collection
   // Response.find()
   console.log('request.body is: ', req.body)
-  console.log('request is: ', req)
-  Response.find({survey_id: req.body.survey_id})
-    .then(responses => res.json({ // res.json is like 'render' in rails
+  console.log('req.body.survey_id is: ', req.body.survey_id)
+// console.log('request is: ', req)
+  Response.find({'survey_id': req.body.survey_id})
+    .then(responses => {
+      console.log('responses are: ', responses)
+      res.json({ // res.json is like 'render' in rails
       // to each individual response:
-      responses: responses.map((event) => // "responses" here could be called anything // map creates new array
+        responses: responses.map((event) => // "responses" here could be called anything // map creates new array
         event.toJSON({ virtuals: true }))
-    }))
+      })
+    })
     // just for error handling, move to the next thing?
     .catch(next)
 }

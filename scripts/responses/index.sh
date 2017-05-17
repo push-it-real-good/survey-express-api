@@ -11,7 +11,10 @@ SURVEYID="591b466789660e287b76551c"
 curl "${API}${URL_PATH}" \
   --include \
   --request GET \
+  --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
-  --data '{"survey_id": "'"${SURVEYID}"'"}'
+  --data '{
+      "survey_id": "'"${SURVEYID}"'"
+  }'
 
 echo
