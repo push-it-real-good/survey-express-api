@@ -7,6 +7,7 @@ URL_PATH="/surveys"
 TOKEN="JlzgwmaXm482/ttO+dyuLmcxrg4vAMFeJ0wQgmaX+Bk=--7oicnzNCgQspCjot0kUzu91SShoj97GU25JisL0lsGs="
 # ID="591b466789660e287b76551c"
 TITLE="first survey"
+QUESTION="What is my questions ?"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -15,7 +16,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "survey": {
-      "title": "'"${TITLE}"'"
+      "title": "'"${TITLE}"'",
+      "question": "'"${QUESTION}"'"
     }
   }'
 
