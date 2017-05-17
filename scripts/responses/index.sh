@@ -4,9 +4,9 @@
 API="http://localhost:4741"
 URL_PATH="/responses"
 
-TOKEN="sVszRfskTfAsTk1bkDt+EVfZK2gYUh9sm6d49hTSA4g=--NoOulK8XHktFMK3QOPYrNO0EWCmd+Mqza9dXkjD7JzQ="
+TOKEN="dUim9y/Jlt3mDMwPo+qs1yzy+5eJJlFNNiq/kM8ZMt0=--RFecLpZ+BWQvM6kBH0UecTypOadd2ZOfYrm0iBQGsxc="
 # ID="591b566e6c7cec38cd43e05f"
-SURVEYID="591b466789660e287b76551c"
+SURVEYID="591ca14bea0091c8a3783eb8"
 
 curl "${API}${URL_PATH}" \
   --include \

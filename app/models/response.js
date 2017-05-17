@@ -10,10 +10,6 @@ const responseSchema = new mongoose.Schema({
   survey_id: {
     type: String,
     required: true
-  },
-  question_id: {
-    type: String,
-    required: true
   }
 }, {
   timestamps: true,
