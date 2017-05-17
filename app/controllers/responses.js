@@ -3,8 +3,7 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Response = models.response
-
-const setModel = require('./concerns/set-mongoose-model-by-survey')
+const setModel = require('./concerns/set-mongoose-model')
 
 // find / show all responses
 const index = (req, res, next) => {
