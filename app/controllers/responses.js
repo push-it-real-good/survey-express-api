@@ -64,7 +64,8 @@ const update = (req, res, next) => {
 
 const destroy = (req, res, next) => {
   // remove response from db
-  req.response.remove()
+  // req.response.remove()
+  Response.find({'survey_id': req.body.survey_id}).remove()
   // if successfully remove ex from db, return 204 to client
     .then(() => res.sendStatus(204))
     // error handling
@@ -81,6 +82,7 @@ module.exports = controller({
   // runs the setModel middleware for show controller action
   { method: setModel(Response), only: ['show'] },
   // runs the setModel middleware for update and destroy controller actions, making sure the user only does it on things associated with that user
-  { method: setModel(Response, { forUser: true }), only: ['update', 'destroy'] }
+  // { method: setModel(Response, { forUser: true }), only: ['update', 'destroy'] }
+  { method: setModel(Response, { forUser: true }), only: ['update'] }
 ]
 })
