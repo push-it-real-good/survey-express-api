@@ -7,11 +7,6 @@ const surveySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  url: {
-// does this need to change?
-    type: String,
-    required: true
-  },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

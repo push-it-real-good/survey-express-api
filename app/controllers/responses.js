@@ -4,12 +4,14 @@ const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Response = models.response
 
-const setModel = require('./concerns/set-mongoose-model')
+const setModel = require('./concerns/set-mongoose-model-by-survey')
 
 // find / show all responses
 const index = (req, res, next) => {
   // find everything in the Response collection
-  Response.find()
+  // Response.find()
+  console.log('request.body is: ', req.body)
+  Response.find({survey_id: req.body.survey_id})
     .then(responses => res.json({ // res.json is like 'render' in rails
       // to each individual response:
       responses: responses.map((event) => // "responses" here could be called anything // map creates new array

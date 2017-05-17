@@ -38,11 +38,14 @@ const create = (req, res, next) => {
     // this survey object is created with data from the client and the current user as _owner
   Survey.create(survey)
     // the newly created survey we get from database is rendered as JSON
+
     .then(survey =>
       res.status(201)
         .json({
           survey: survey.toJSON({ virtuals: true, user: req.user })
-        }))
+        })
+      )
+
     // if there is an error, send to the error handler
     .catch(next)
 }
