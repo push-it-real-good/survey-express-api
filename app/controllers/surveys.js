@@ -13,8 +13,9 @@ const setModel = require('./concerns/set-mongoose-model')
 // find / show all surveys
 const index = (req, res, next) => {
   // find everything in the Survey collection
-  Survey.find()
+  Survey.find({'_owner': req.user})
     .then(surveys => {
+      console.log('survey index req.user is: ', req.user)
       res.json({ // res.json is like 'render' in rails
       // to each individual survey:
         surveys: surveys.map((event) => // "surveys" here could be called anything // map creates new array
