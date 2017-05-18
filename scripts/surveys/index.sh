@@ -4,7 +4,7 @@
 API="http://localhost:4741"
 URL_PATH="/surveys"
 
-TOKEN="dUim9y/Jlt3mDMwPo+qs1yzy+5eJJlFNNiq/kM8ZMt0=--RFecLpZ+BWQvM6kBH0UecTypOadd2ZOfYrm0iBQGsxc="
+TOKEN="W6HIEbjIODbWdx+QXNhdUQ29onJ06f8QpLE0vUpJsw4=--+qJHxaE6XQgagAhIxMuzBYFBafuZDaEYiBRejh5KEcM="
 # ID="591b466789660e287b76551c"
 
 curl "${API}${URL_PATH}" \

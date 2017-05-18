@@ -3,7 +3,7 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Survey = models.survey
-// const Response = models.response
+const Response = models.response
 // const responses = require('./responses')
 
 const authenticate = require('./concerns/authenticate')
@@ -84,6 +84,7 @@ const destroy = (req, res, next) => {
 
       // responses.controller.destroy(req.survey._id)
       // Response.find({'survey_id': req.survey._id}).remove()
+      Response.remove({survey_id: req.survey._id}).exec()
       res.sendStatus(204)
       // console.log('req body is: ', req.body)
       // console.log('request is: ', req.survey)
