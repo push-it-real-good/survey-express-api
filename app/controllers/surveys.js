@@ -3,6 +3,8 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Survey = models.survey
+// const Response = models.response
+// const responses = require('./responses')
 
 const authenticate = require('./concerns/authenticate')
 const setUser = require('./concerns/set-current-user')
@@ -12,11 +14,13 @@ const setModel = require('./concerns/set-mongoose-model')
 const index = (req, res, next) => {
   // find everything in the Survey collection
   Survey.find()
-    .then(surveys => res.json({ // res.json is like 'render' in rails
+    .then(surveys => {
+      res.json({ // res.json is like 'render' in rails
       // to each individual survey:
-      surveys: surveys.map((event) => // "surveys" here could be called anything // map creates new array
-        event.toJSON({ virtuals: true, user: req.user }))
-    }))
+        surveys: surveys.map((event) => // "surveys" here could be called anything // map creates new array
+          event.toJSON({ virtuals: true, user: req.user }))
+      })
+    })
     // just for error handling, move to the next thing?
     .catch(next)
 }
@@ -25,7 +29,8 @@ const index = (req, res, next) => {
 const show = (req, res) => {
   // sends a json response of the requested survey
   res.json({
-    survey: req.survey.toJSON({ virtuals: true, user: req.user })
+    // survey: req.survey.toJSON({ virtuals: true, user: req.user })
+    survey: req.survey.toJSON({ virtuals: true })
   })
 }
 
@@ -52,9 +57,14 @@ const create = (req, res, next) => {
 
 const update = (req, res, next) => {
   // protects against malicious users by deleting the _owner key from req.body
-  console.log(req.body._owner)
-  delete req.body._owner  // disallow owner reassignment.
-  // updates the survey in the database
+  console.log('update survey here: ', req.body)
+  console.log('update survey here: ', req.body.survey)
+  console.log('here is the req.survey._owner: ', req.survey._owner)
+  // console.log('update survey here for req: ', req)
+  // console.log('update survey here for res: ', res)
+  // delete req.body._owner  // disallow owner reassignment.
+  delete req.survey._owner  // disallow owner reassignment.
+// updates the survey in the database
   req.survey.update(req.body.survey)
     // if update is successful then send 204 status back to client
     // is 204 the right status for an update?
@@ -67,7 +77,17 @@ const destroy = (req, res, next) => {
   // remove survey from db
   req.survey.remove()
   // if successfully remove ex from db, return 204 to client
-    .then(() => res.sendStatus(204))
+    .then(() => {
+      // console.log('URL_PATH is this: ', req.URL_PATH)
+      // console.log('req.survey is: ', req.survey)
+      // console.log('req.survey._id is: ', req.survey._id)
+
+      // responses.controller.destroy(req.survey._id)
+      // Response.find({'survey_id': req.survey._id}).remove()
+      res.sendStatus(204)
+      // console.log('req body is: ', req.body)
+      // console.log('request is: ', req.survey)
+    })
     // error handling
     .catch(next)
 }
