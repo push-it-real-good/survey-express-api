@@ -4,7 +4,7 @@
 API="http://localhost:4741"
 URL_PATH="/sign-up"
 
-EMAIL="TEST2"
+EMAIL="CONOR@GMAIl"
 PASSWORD="TEST"
 PASSWORD1="TEST"
 

@@ -3,7 +3,7 @@
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Survey = models.survey
-// const Response = models.response
+const Response = models.response
 // const responses = require('./responses')
 
 const authenticate = require('./concerns/authenticate')
@@ -13,8 +13,9 @@ const setModel = require('./concerns/set-mongoose-model')
 // find / show all surveys
 const index = (req, res, next) => {
   // find everything in the Survey collection
-  Survey.find()
+  Survey.find({'_owner': req.user})
     .then(surveys => {
+      console.log('survey index req.user is: ', req.user)
       res.json({ // res.json is like 'render' in rails
       // to each individual survey:
         surveys: surveys.map((event) => // "surveys" here could be called anything // map creates new array
@@ -84,6 +85,7 @@ const destroy = (req, res, next) => {
 
       // responses.controller.destroy(req.survey._id)
       // Response.find({'survey_id': req.survey._id}).remove()
+      Response.remove({survey_id: req.survey._id}).exec()
       res.sendStatus(204)
       // console.log('req body is: ', req.body)
       // console.log('request is: ', req.survey)

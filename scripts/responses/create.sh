@@ -4,11 +4,11 @@
 API="http://localhost:4741"
 URL_PATH="/responses"
 
-TOKEN="ra2knLJVDZYOn15aNYuv8neaFyySnIj45s6TvxwD7WI=--tZvkZoQM3eW9Q3FeLH4HBSOIy/4ubfvhmhjlqLww9Ik="
+TOKEN="J2Rs0QpflfWbWjXO4zd4DqbfNmKwIbCrsT6UGTUuQug=--A7LqPBnw6+uVKtf5b8pcFsGEtFrdz6bVqH6HuCoJbE8="
 # ID="591b566e6c7cec38cd43e05f"
 
-TEXT="Terry is NOT the man!"
-SURVEYID="591ced98552ca16fbe258bb6"
+TEXT="Hell yeah !"
+SURVEYID="591dbdd4ea4ff7267749a402"
 
 curl "${API}${URL_PATH}" \
   --include \
