@@ -4,11 +4,12 @@
 API="http://localhost:4741"
 URL_PATH="/responses"
 
-TOKEN="dUim9y/Jlt3mDMwPo+qs1yzy+5eJJlFNNiq/kM8ZMt0=--RFecLpZ+BWQvM6kBH0UecTypOadd2ZOfYrm0iBQGsxc="
+TOKEN="m1Zu7zjfKNXlW2HiaUKPf4QppjgWhBsg88P1vYWvDpw=--FBMpBW8XLRLzCOudD4NJLtyheJ1FDgce/rUxcdS7+lY="
 
 SURVEYID="591ca14bea0091c8a3783eb8"
+ID="591cb547ea461c604f955ee7"
 
-curl "${API}${URL_PATH}" \
+curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \

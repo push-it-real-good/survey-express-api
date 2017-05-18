@@ -64,7 +64,8 @@ const update = (req, res, next) => {
 
 const destroy = (req, res, next) => {
   // remove response from db
-  // req.response.remove()
+  // req.response.remove
+  console.log('in response destroy, req.body is: ', req.body)
   Response.find({'survey_id': req.body.survey_id}).remove()
   // if successfully remove ex from db, return 204 to client
     .then(() => res.sendStatus(204))
