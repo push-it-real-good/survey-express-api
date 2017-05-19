@@ -15,7 +15,7 @@ const index = (req, res, next) => {
   // find everything in the Survey collection
   Survey.find({'_owner': req.user})
     .then(surveys => {
-      console.log('survey index req.user is: ', req.user)
+      // console.log('survey index req.user is: ', req.user)
       res.json({ // res.json is like 'render' in rails
       // to each individual survey:
         surveys: surveys.map((event) => // "surveys" here could be called anything // map creates new array
@@ -58,9 +58,9 @@ const create = (req, res, next) => {
 
 const update = (req, res, next) => {
   // protects against malicious users by deleting the _owner key from req.body
-  console.log('update survey here: ', req.body)
-  console.log('update survey here: ', req.body.survey)
-  console.log('here is the req.survey._owner: ', req.survey._owner)
+  // console.log('update survey here: ', req.body)
+  // console.log('update survey here: ', req.body.survey)
+  // console.log('here is the req.survey._owner: ', req.survey._owner)
   // console.log('update survey here for req: ', req)
   // console.log('update survey here for res: ', res)
   // delete req.body._owner  // disallow owner reassignment.
@@ -103,7 +103,7 @@ module.exports = controller({
 }, { before: [
   // runs the setUser middleware for index and show controller actions
   { method: setUser, only: ['index', 'show'] },
-  // runs the authenticate middleware for all controller actions except index and show
+    // runs the authenticate middleware for all controller actions except index and show
   { method: authenticate, except: ['index', 'show'] },
   // runs the setModel middleware for show controller action
   { method: setModel(Survey), only: ['show'] },
