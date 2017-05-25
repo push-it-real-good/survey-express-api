@@ -5,7 +5,16 @@ const mongoose = require('mongoose')
 const responseSchema = new mongoose.Schema({
   text: {
     type: String,
-    required: true
+    required: false
+  },
+  yes_no: {
+    type: Boolean,
+    required: false
+  },
+  rating: {
+    type: Number,
+    max: 5,
+    required: false
   },
   survey_id: {
     type: String,
