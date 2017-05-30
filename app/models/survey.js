@@ -13,7 +13,6 @@ const surveySchema = new mongoose.Schema({
   },
   response_type: {
     type: String,
-    default: 'String',
     required: true
   },
   _owner: {

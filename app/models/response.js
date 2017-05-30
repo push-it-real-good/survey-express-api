@@ -7,13 +7,15 @@ const responseSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  yes_no: {
+  boolean: {
     type: Boolean,
     required: false
   },
   rating: {
     type: Number,
+    min: 1,
     max: 5,
+    default: '',
     required: false
   },
   survey_id: {
